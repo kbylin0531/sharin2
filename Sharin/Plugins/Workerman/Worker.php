@@ -26,8 +26,7 @@ use Exception;
  * Worker class
  * A container for listening ports
  */
-class Worker
-{
+class Worker {
     /**
      * Version.
      *
@@ -433,6 +432,26 @@ class Worker
     }
 
     /**
+     * 检查文件如果文件不存在则创建一个空的文件，并且解决上层目录的问题
+     * @param string $file 文件路径
+     * @return bool
+     * @throws \Exception 无权限时抛出异常
+     */
+    protected static function touch($file){
+        $dir = dirname($file);
+        if(!is_dir($dir)){
+            if(!mkdir($dir,0777,true)){
+                throw new \Exception("创建目录失败'$dir'!");
+            }
+        }
+        if(!is_writable($dir)){
+            if(!chmod($dir,0777)){
+                throw new \Exception("修改目录权限失败'$dir'!");
+            }
+        }
+        return touch($file);
+    }
+    /**
      * Init.
      *
      * @return void
@@ -451,7 +470,7 @@ class Worker
         if (empty(self::$logFile)) {
             self::$logFile = SR_PATH_RUNTIME . '/Workman/Log/'.$datetime.'.log';
         }
-        touch(self::$logFile);
+        self::touch(self::$logFile);
         chmod(self::$logFile, 0622);
 
         // State.
@@ -797,6 +816,7 @@ class Worker
     protected static function saveMasterPid()
     {
         self::$_masterPid = posix_getpid();
+        self::touch(self::$pidFile);
         if (false === @file_put_contents(self::$pidFile, self::$_masterPid)) {
             throw new Exception('can not save pid to ' . self::$pidFile);
         }

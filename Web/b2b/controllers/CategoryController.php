@@ -57,7 +57,7 @@ class CategoryController extends SController {
     public function actionList($code,$b2bcode=0){
         $platform = B2BCategory::getInstance($code);
         $setting = B2BCategory::getPlatformMap($code);
-        define('CATE_USE_CATE',empty($setting[3]));
+        define('CATE_USE_CATE',!empty($setting[3])?1:0);
         if(CATE_USE_CATE){
             //开发模式
             if(($data = Tempper::get($code,false)) === false){

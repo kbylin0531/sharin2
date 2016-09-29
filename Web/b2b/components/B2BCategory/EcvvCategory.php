@@ -84,7 +84,7 @@ class EcvvCategory extends B2BCategory {
         return false;
     }
 
-    private function login(){
+    protected function login(){
         self::post($this->address,http_build_query([
             'txtPassword'  => 'kbylin@163.com',
             'chkRemember'  => '1',

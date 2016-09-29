@@ -44,6 +44,7 @@ const SR_PATH_FRAMEWORK = SR_PATH_BASE.'/Sharin';
 const SR_PATH_CONFIG    = SR_PATH_BASE.'/Config';//global config
 const SR_PATH_RUNTIME   = SR_PATH_BASE.'/Runtime';
 const SR_PATH_PUBLIC    = SR_PATH_BASE.'/Public';
+const SR_PATH_SERVICE   = SR_PATH_BASE.'/Service';
 const SR_PATH_VENDOR    = SR_PATH_FRAMEWORK.'/Vendor';
 const SR_PATH_PLUGIN    = SR_PATH_FRAMEWORK.'/Plugins';
 

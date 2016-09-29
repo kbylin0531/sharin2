@@ -89,7 +89,7 @@ class TradettCategory extends B2BCategory {
         return false;
     }
 
-    private function login(){
+    protected function login(){
         $content = self::post('http://us.en.tradett.com/',[],$this->cookie,true,[
             CURLOPT_COOKIE => 'TT_Language=en-us; uName=kbylin@163.com; TT_Log_system_code=8352',
         ]);

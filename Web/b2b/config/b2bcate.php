@@ -62,10 +62,13 @@ const CATE_CONF = [
         'TradettCategory','tradett.com','登录无法实现',
     ],
     8   => [
-        'TtnetCategory','ttnet.net',true
+        'TtnetCategory','ttnet.net'
     ],
     9   => [
         'Ec21Category','ec21.com',
+    ],
+    10  => [
+        'TraderscityCategory','tradeprince.com','需要登陆，待...'
     ],
 ];
 

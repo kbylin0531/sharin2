@@ -3,6 +3,11 @@
  * Class Error
  * 兼容PHPv7
  */
-class Error extends \Exception {
+if(!class_exists('Error')){
+    /**
+     * Class Error
+     */
+    class Error extends \Exception {
 
+    }
 }

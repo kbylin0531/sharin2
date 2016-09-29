@@ -58,8 +58,8 @@ namespace {
     use Workerman\Worker;
     use Workerman\WebServer;
 
-    require __DIR__.'/Common/constant.console.inc';
-    require __DIR__.'classes.inc';
+    require __DIR__.'/Common/constant.inc';
+    require __DIR__.'/classes.inc';
     require __DIR__.'/Common/environment.inc';
 
     //error  display
@@ -157,7 +157,6 @@ namespace {
             if(!extension_loaded('posix')) $error = "Please install posix extension. See http://doc3.workerman.net/install/install.html\n";
             return $error;
         }
-
     }
 
 
